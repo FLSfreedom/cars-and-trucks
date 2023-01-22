@@ -1,0 +1,18 @@
+.bi {
+    width: 50px;
+    height: 45px;
+    vertical-align: 10%;
+}
+
+.cantidadestilo {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    color: white;
+    background-color: rgb(255, 0, 0);
+    border-radius: 50%;
+    font-size: 15px;
+    position: absolute;
+    text-align: center;
+    line-height: 17px;
+}
