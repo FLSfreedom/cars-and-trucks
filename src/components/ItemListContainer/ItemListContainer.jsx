@@ -1,14 +1,12 @@
-import Greetings from "../Greetings/Greetings"
+import '../ItemListContainer/ItemListContainer.css'
 
-const ItemListContainer = () => {
+const ItemListContainer = ({Greetings}) => {
 
   return (
     <>
       <div className="contenedorPrincipal">
-        <Greetings name="Juan"/>
-        <h2>Tenemos el vehículo que buscás</h2>
+        <h2 className="tituloGreetings">{Greetings}</h2>
       </div>
-      
     </>
   )
 }
