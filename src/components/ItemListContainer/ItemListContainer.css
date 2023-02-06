@@ -21,3 +21,9 @@
     align-items: center;
     justify-content: center;
 }
+
+@media screen and (max-width: 400px){
+    .card img {
+        width: 280px;
+    }
+}

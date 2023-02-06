@@ -27,6 +27,11 @@ h1 {
 
 .nav-link {
     color: yellow !important;
+    border-radius: 5px !important;
+}
+
+.nav-link:hover {
+    box-shadow: 7px 7px 4px 0px rgba(0,0,0,0.75);
 }
 
 .opcionesNav {

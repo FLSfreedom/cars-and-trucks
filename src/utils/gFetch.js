@@ -25,6 +25,6 @@ export const gFetch = () => {
   return new Promise((res, rej)=>{
     setTimeout(()=>{
         res( listaVehiculos )
-    }, 2000)
+    }, 1000)
   })
 }
