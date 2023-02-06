@@ -28,8 +28,6 @@ export const ItemListContainer = ({Greetings}) => {
     }
   }, [idCategory])
 
-  console.log(idCategory)
-
   return (
     <center>
       <div className="contenedorPrincipal">
@@ -47,7 +45,6 @@ export const ItemListContainer = ({Greetings}) => {
                                             <div key={vehiculo.id} className="card" styles="width: 18rem;">                                            
                                               <img src={vehiculo.imagen} className="card-img-top" alt="..."/>
                                               <div className="card-body">
-                                                <p className="card-text">{vehiculo.categoria}</p>
                                                 <h4>{vehiculo.nombre}</h4>
                                                 <h5>${vehiculo.precio}</h5>
                                                 <p className="card-text"></p>

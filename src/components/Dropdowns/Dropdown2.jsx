@@ -1,46 +1,22 @@
+import { NavLink } from "react-router-dom"
+
 const Dropdown2 = () => {
     return (
       <div>
-          <ul className="navbar-nav">
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Automóviles
-                    </a>
-                    <ul className="dropdown-menu">
-                      <li><a className="dropdown-item" href="#">Grandes</a></li>
-                      <li><a className="dropdown-item" href="#">Medianos</a></li>
-                      <li><a className="dropdown-item" href="#">Pequeños</a></li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Camionetas
-                    </a>
-                    <ul className="dropdown-menu">
-                      <li><a className="dropdown-item" href="#">Grandes</a></li>
-                      <li><a className="dropdown-item" href="#">Medianas</a></li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Camiones
-                    </a>
-                    <ul className="dropdown-menu">
-                      <li><a className="dropdown-item" href="#">Semiremolques</a></li>
-                      <li><a className="dropdown-item" href="#">Volcadores</a></li>
-                      <li><a className="dropdown-item" href="#">Medianos</a></li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Otros
-                    </a>
-                    <ul className="dropdown-menu">
-                      <li><a className="dropdown-item" href="#">Maquinaria</a></li>
-                      <li><a className="dropdown-item" href="#">Motos</a></li>
-                    </ul>
-                  </li>
-          </ul>
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <NavLink to='/category/Automoviles' className="nav-link" href="#">Automóviles</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to='/category/Camionetas' className="nav-link" href="#">Camionetas</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to='/category/Camiones' className="nav-link" href="#">Camiones</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to='/category/Otros' className="nav-link" href="#">Otros</NavLink>
+          </li>
+        </ul>
       </div>
     )
   }
