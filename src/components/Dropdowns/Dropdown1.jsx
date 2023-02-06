@@ -1,3 +1,6 @@
+import { NavLink } from "react-router-dom"
+
+
 const Dropdown1 = () => {
   return (
     <div>
@@ -7,9 +10,9 @@ const Dropdown1 = () => {
                     Automóviles
                   </a>
                   <ul className="dropdown-menu">
-                    <li><a className="dropdown-item" href="#">Grandes</a></li>
-                    <li><a className="dropdown-item" href="#">Medianos</a></li>
-                    <li><a className="dropdown-item" href="#">Pequeños</a></li>
+                    <li><NavLink to='/category/Grandes' className="dropdown-item" href="#">Grandes</NavLink></li>
+                    <li><NavLink to='/category/Medianos' className="dropdown-item" href="#">Medianos</NavLink></li>
+                    <li><NavLink to="/category/Pequenios" className="dropdown-item" href="#">Pequeños</NavLink></li>
                   </ul>
                 </li>
                 <li className="nav-item dropdown">
@@ -17,18 +20,18 @@ const Dropdown1 = () => {
                     Camionetas
                   </a>
                   <ul className="dropdown-menu">
-                    <li><a className="dropdown-item" href="#">Grandes</a></li>
-                    <li><a className="dropdown-item" href="#">Medianas</a></li>
+                    <li><NavLink to='/category/Grandes' className="dropdown-item" href="#">Grandes</NavLink></li>
+                    <li><NavLink to='/category/Medianas' className="dropdown-item" href="#">Medianas</NavLink></li>
                   </ul>
                 </li>
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Camiones
                   </a>
-                  <ul class="dropdown-menu">
-                    <li><a className="dropdown-item" href="#">Semiremolques</a></li>
-                    <li><a className="dropdown-item" href="#">Volcadores</a></li>
-                    <li><a className="dropdown-item" href="#">Medianos</a></li>
+                  <ul className="dropdown-menu">
+                    <li><NavLink to='/category/Semiremolques' className="dropdown-item" href="#">Semiremolques</NavLink></li>
+                    <li><NavLink to='/category/Volcadores' className="dropdown-item" href="#">Volcadores</NavLink></li>
+                    <li><NavLink to='/category/Medianos' className="dropdown-item" href="#">Medianos</NavLink></li>
                   </ul>
                 </li>
                 <li className="nav-item dropdown">
@@ -36,8 +39,8 @@ const Dropdown1 = () => {
                     Otros
                   </a>
                   <ul className="dropdown-menu">
-                    <li><a className="dropdown-item" href="#">Maquinaria</a></li>
-                    <li><a className="dropdown-item" href="#">Motos</a></li>
+                    <li><NavLink to='/category/Maquinaria' className="dropdown-item" href="#">Maquinaria</NavLink></li>
+                    <li><NavLink to='/category/Motos' className="dropdown-item" href="#">Motos</NavLink></li>
                   </ul>
                 </li>
         </ul>

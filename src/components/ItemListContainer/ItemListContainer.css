@@ -1,3 +1,11 @@
 .tituloGreetings {
     text-align: center;
 }
+
+.card {
+    margin-top: 1%;
+}
+
+.card img {
+    width: 350px;
+}
