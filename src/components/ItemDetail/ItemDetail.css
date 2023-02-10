@@ -1,0 +1,31 @@
+.estiloDetalle {
+    display: flex;
+    margin: 3%;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(7, 114, 255);
+}
+
+.carousel {
+    margin-bottom: 2%;
+}
+
+.carousel-item img {
+    width: 800px !important;
+    height: 500px;
+    border-radius: 15px !important
+}
+
+@media screen and (max-width: 800px) {
+    .carousel-item img {
+        width: 500px !important;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .carousel-item img {
+        width: 300px !important;
+        height: 200px;
+    }
+}

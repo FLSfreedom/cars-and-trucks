@@ -24,7 +24,7 @@ const NavBar = () => {
             </div>
           </div>
         </nav>
-        <div className="listaFantasma2">
+        <div className="listaFantasmaDos">
           <Dropdown2/>
         </div>
       </>

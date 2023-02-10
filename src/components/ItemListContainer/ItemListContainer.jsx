@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
-import { gFetch } from '../../utils/gFetch'
+import { gFetchCategoria } from '../../utils/gFetch'
 import '../ItemListContainer/ItemListContainer.css'
 
 export const ItemListContainer = ({Greetings}) => {
@@ -12,14 +12,14 @@ export const ItemListContainer = ({Greetings}) => {
 
   useEffect(()=>{
     if (idCategory) {
-      gFetch()
+      gFetchCategoria()
       .then(res => {
         setVehiculos(res.filter(vehiculo => vehiculo.categoria == idCategory))
       })
       .catch(error => console.log(error))
       .finally(()=> setCargando(false))
     } else {
-      gFetch()
+      gFetchCategoria()
       .then(res => {
         setVehiculos(res)
       })
@@ -46,7 +46,7 @@ export const ItemListContainer = ({Greetings}) => {
                                               <img src={vehiculo.imagen} className="card-img-top" alt="..."/>
                                               <div className="card-body">
                                                 <h4>{vehiculo.nombre}</h4>
-                                                <h5>${vehiculo.precio}</h5>
+                                                <h5>${vehiculo.precio} {vehiculo.moneda}</h5>
                                                 <p className="card-text"></p>
                                               </div>                                                                                      
                                             </div>

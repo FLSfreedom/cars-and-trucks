@@ -51,7 +51,7 @@ h1 {
     background-color:#5faeeec0;
 }
 
-.listaFantasma2 {
+.listaFantasmaDos {
     background-color: #007ee5;
     padding-left: 5%;
     padding-bottom: 5%;
@@ -89,12 +89,12 @@ h1 {
 }
 
 @media screen and (min-width: 520px) {
-    .listaFantasma2 {
+    .listaFantasmaDos {
         display: none !important;
     }
 }
 
-@media screen and (max-width: 521px) {
+@media screen and (max-width: 519px) {
     .estiloCart {
         margin-right: 40%;
         margin-left: 40%;
