@@ -4,6 +4,10 @@ import { Link, useParams } from 'react-router-dom'
 import { gFetchCategoria } from '../../utils/gFetch'
 import '../ItemListContainer/ItemListContainer.css'
 
+const Cargando = () => {
+  return <h2>Cargando...</h2>
+}
+
 export const ItemListContainer = ({Greetings}) => {
   const [ listaVehiculos, setVehiculos ] = useState ([]) 
   const [ cargando, setCargando ] = useState(true)
@@ -33,7 +37,7 @@ export const ItemListContainer = ({Greetings}) => {
       <div className="contenedorPrincipal">
         <h2 className="tituloGreetings">{Greetings}</h2>
       </div>
-      { cargando ? <h2>Cargando...</h2>
+      { cargando ? <Cargando/>
         :
         <div style={{
           display: 'flex',

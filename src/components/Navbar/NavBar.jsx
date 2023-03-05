@@ -18,9 +18,9 @@ const NavBar = () => {
               <div className="navbar-collapse listaFantasma" id="navbarNavDropdown">
                 <Dropdown1/>
               </div>
-              <div className="estiloCart">
+              <Link to='/cart' className="estiloCart">
                 <CartWidget/>
-              </div>
+              </Link>
             </div>
           </div>
         </nav>

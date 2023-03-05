@@ -1,6 +1,7 @@
 .estiloDetalle {
     display: flex;
     margin: 3%;
+    row-gap: 5px;
     flex-direction: column;
     align-items: center;
     color: rgb(7, 114, 255);
@@ -14,6 +15,15 @@
     width: 800px !important;
     height: 500px;
     border-radius: 15px !important
+}
+
+.btn-secondary {
+    width: 50px;
+    height: 50px;
+}
+
+center {
+    align-self: center;
 }
 
 @media screen and (max-width: 800px) {
