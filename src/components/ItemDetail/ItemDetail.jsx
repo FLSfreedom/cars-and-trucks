@@ -1,29 +1,8 @@
-import { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { useCartContext } from '../../Context/CartContext'
-import CartContainer from '../CartContainer/CartContainer'
+import CartInDetail from '../CartInDetail/CartInDetail'
 import { ItemCount } from '../ItemCount/ItemCount'
 import '../ItemDetail/ItemDetail.css'
-
-
-const Componente = ()=> {
-    return (
-        <div style={{
-            height: '100%',
-            width: '100%',
-            backgroundColor: 'rgb(7, 114, 255',
-            display: 'absolute',
-            float: 'right',
-            borderRadius: 15,
-            color: 'white'
-        }}>
-            <div>
-               <CartContainer/>
-            </div>
-            <button className='btn btn-success' style={{margin: 20}}><Link to="/cart" style={{color: 'white'}}>Completar la compra</Link></button>
-        </div>
-    )
-}
 
 
 export const ItemDetail = ({vehiculo}) => {
@@ -62,21 +41,21 @@ export const ItemDetail = ({vehiculo}) => {
                 <span className="visually-hidden">Next</span>
             </button>
         </div>
+        <h6>Categoría: {vehiculo.categoria}</h6> 
+        <h2>{vehiculo.nombre}</h2> 
+        <h4>Precio: {vehiculo.precio} {vehiculo.moneda}</h4> 
         <div>
-                    <button className='btn btn-primary' style={{margin: 10}} onClick={handleCart}>Verificar carrito</button>
+                    <button className='btn btn-primary' style={{margin: '10px 0px 10px 0px'}} onClick={handleCart}>Verificar carrito</button>
                     {
                         isCount ? 
-                            <ItemCount initial={1} stock={30} onAdd={onAdd} />                        
+                            <ItemCount initial={1} stock={vehiculo.stock} onAdd={onAdd} />                        
                         :
                             <h4>¡El vehiculo fue agregado!</h4>
                     }   
                     {
-                        cart && <Componente />
+                        cart && <CartInDetail />
                     }
-        </div>
-        <h6>Categoría: {vehiculo.categoria}</h6> 
-        <h2>{vehiculo.nombre}</h2> 
-        <h4>Precio: {vehiculo.precio} {vehiculo.moneda}</h4>            
+        </div>           
     </div>
   )
 }
