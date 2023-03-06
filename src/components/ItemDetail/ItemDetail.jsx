@@ -12,7 +12,6 @@ export const ItemDetail = ({vehiculo}) => {
 
     const { agregarACart } = useCartContext()
     const onAdd = (Qcant) => {
-        console.log(Qcant)
         agregarACart ({ ... vehiculo, cantidad: Qcant})
         setIsCount(false)
     }

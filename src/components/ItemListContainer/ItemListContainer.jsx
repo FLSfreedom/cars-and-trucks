@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import { gFetchCategoria } from '../../utils/gFetch'
 import ItemList from '../ItemList/ItemList'
+import { collection, getDocs, getFirestore, query, where} from "firebase/firestore"
 import '../ItemListContainer/ItemListContainer.css'
 
 const Cargando = () => {
@@ -10,28 +11,41 @@ const Cargando = () => {
 }
 
 export const ItemListContainer = ({Greetings}) => {
-  const [ listaVehiculos, setVehiculos ] = useState ([]) 
+  const [ vehiculos, setVehiculos ] = useState ([]) 
   const [ cargando, setCargando ] = useState(true)
 
   const { idCategory }=useParams()
 
   useEffect(()=>{
-    if (idCategory) {
-      gFetchCategoria()
-      .then(res => {
-        setVehiculos(res.filter(vehiculo => vehiculo.categoria == idCategory))
-      })
-      .catch(error => console.log(error))
-      .finally(()=> setCargando(false))
-    } else {
-      gFetchCategoria()
-      .then(res => {
-        setVehiculos(res)
-      })
-      .catch(error => console.log(error))
-      .finally(()=> setCargando(false))
-    }
-  }, [idCategory])
+    const db = getFirestore()
+    const queryCollections = collection(db, 'vehiculos')
+    const queryFilter = idCategory ? query(queryCollections, where('categoria','==', idCategory) ) : queryCollections 
+    getDocs(queryFilter)
+    .then(resp =>setVehiculos(resp.docs.map(vehiculo=>({id: vehiculo.id,...vehiculo.data()}))))
+    .catch(err => console.log(err))
+    .finally(()=>setCargando(false))
+  },[idCategory])
+  console.log(vehiculos)
+
+//
+//  useEffect(()=>{
+//    if (idCategory) {
+//      gFetchCategoria()
+//      .then(res => {
+//        setVehiculos(res.filter(vehiculo => vehiculo.categoria == idCategory))
+//      })
+//      .catch(error => console.log(error))
+//      .finally(()=> setCargando(false))
+//    } else {
+//      gFetchCategoria()
+//      .then(res => {
+//        setVehiculos(res)
+//      })
+//      .catch(error => console.log(error))
+//      .finally(()=> setCargando(false))
+//    }
+//  }, [idCategory])
+//
 
   return (
     <center>
@@ -46,7 +60,7 @@ export const ItemListContainer = ({Greetings}) => {
           justifyContent: 'space-evenly',
           flexWrap: 'wrap'
         }}>
-          <ItemList listaVehiculos={listaVehiculos}/>
+          <ItemList vehiculos={vehiculos}/>
         </div>
       }
     </center>
