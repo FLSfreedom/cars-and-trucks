@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { gFetchCategoria } from '../../utils/gFetch'
 import ItemList from '../ItemList/ItemList'
 import { collection, getDocs, getFirestore, query, where} from "firebase/firestore"
 import '../ItemListContainer/ItemListContainer.css'
@@ -27,25 +26,6 @@ export const ItemListContainer = ({Greetings}) => {
   },[idCategory])
   console.log(vehiculos)
 
-//
-//  useEffect(()=>{
-//    if (idCategory) {
-//      gFetchCategoria()
-//      .then(res => {
-//        setVehiculos(res.filter(vehiculo => vehiculo.categoria == idCategory))
-//      })
-//      .catch(error => console.log(error))
-//      .finally(()=> setCargando(false))
-//    } else {
-//      gFetchCategoria()
-//      .then(res => {
-//        setVehiculos(res)
-//      })
-//      .catch(error => console.log(error))
-//      .finally(()=> setCargando(false))
-//    }
-//  }, [idCategory])
-//
 
   return (
     <center>
