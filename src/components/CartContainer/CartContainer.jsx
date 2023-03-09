@@ -1,8 +1,12 @@
 import CartDetailContainer from '../CartDetailContainer/CartDetailContainer'
+import CartForm from '../CartForm/CartForm'
 
 const CartContainer = () => {
   return (
-    <CartDetailContainer/>
+    <div>
+      <CartDetailContainer/>
+      <CartForm/>
+    </div>
   )
 }
 

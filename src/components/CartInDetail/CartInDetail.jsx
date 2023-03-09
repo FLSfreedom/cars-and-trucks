@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import CartContainer from '../CartContainer/CartContainer'
+import CartDetailContainer from '../CartDetailContainer/CartDetailContainer'
 
 
 const CartInDetail = () => {
@@ -16,7 +16,7 @@ const CartInDetail = () => {
         color: 'white'
     }}>
         <div>
-           <CartContainer/>
+           <CartDetailContainer/>
         </div>
         <button className='btn btn-success' style={{margin: 20}}><Link to="/cart" style={{color: 'white'}}>Completar la compra</Link></button>
     </div>
