@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const ItemCount = ({initial=1, stock=3, onAdd}) => {
+export const ItemCount = ({initial=1, stock=10, onAdd}) => {
   const [ contador, setContador] = useState(initial)
 
   const handleSumatoria = () =>{

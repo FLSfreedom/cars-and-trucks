@@ -24,8 +24,6 @@ export const ItemListContainer = ({Greetings}) => {
     .catch(err => console.log(err))
     .finally(()=>setCargando(false))
   },[idCategory])
-  console.log(vehiculos)
-
 
   return (
     <center>

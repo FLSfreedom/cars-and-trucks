@@ -10,8 +10,9 @@ export const ItemDetail = ({vehiculo}) => {
     const [isCount, setIsCount] = useState(true)
     const [cart, setCart] = useState(false)
 
-    const { agregarACart } = useCartContext()
+    const { agregarACart, eliminarVehiculo } = useCartContext()
     const onAdd = (Qcant) => {
+        eliminarVehiculo(vehiculo, 1)
         agregarACart ({ ... vehiculo, cantidad: Qcant})
         setIsCount(false)
     }

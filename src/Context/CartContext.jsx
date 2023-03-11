@@ -4,11 +4,13 @@ export const CartContext = createContext([])
 export const useCartContext = () => useContext(CartContext)
 export const CartContextProvider = ({children}) => {
     const [ ListaCart, setListaCart] = useState([])
+
     const agregarACart = (nuevoVehiculo) => {
         const idVehiculoCart = ListaCart.findIndex(vehiculo => vehiculo.id === nuevoVehiculo.id)
         if(idVehiculoCart !== -1) {
             ListaCart[idVehiculoCart].cantidad += nuevoVehiculo.cantidad
             setListaCart([...ListaCart])
+            return
         }
         setListaCart([
             ... ListaCart,

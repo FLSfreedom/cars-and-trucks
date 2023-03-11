@@ -2,7 +2,7 @@ import React from 'react'
 import { useCartContext } from '../../Context/CartContext'
 
 const CartDetailContainer = () => {
-  const { ListaCart, vaciar, totalPrecio, eliminarVehiculo } = useCartContext()
+  const { ListaCart, totalPrecio, eliminarVehiculo } = useCartContext()
   return (
     <div>
         { ListaCart.map(nuevoVehiculo => (
