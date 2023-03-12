@@ -4,21 +4,21 @@ import { useParams } from "react-router-dom"
 import { ItemDetail } from "../ItemDetail/ItemDetail"
 
 export const ItemDetailContainer = () => {
-  const [ vehiculo, setVehiculo ] =  useState({})
+  const [ vehicle, setVehicle ] =  useState({})
   const { idItem } = useParams()
 
     useEffect(()=>{     
       const db = getFirestore() 
-      const query = doc(db, 'vehiculos', idItem)
+      const query = doc(db, 'vehicles', idItem)
       getDoc(query)
-      .then(resp => setVehiculo( { id: resp.id, ...resp.data() } ))
-      .catch(error => setVehiculo(error))
+      .then(resp => setVehicle( { id: resp.id, ...resp.data() } ))
+      .catch(error => setVehicle(error))
     }, [])
 
 
   return (
     <div>
-      <ItemDetail vehiculo={vehiculo}/>
+      <ItemDetail vehicle={vehicle}/>
     </div>
   )
 }

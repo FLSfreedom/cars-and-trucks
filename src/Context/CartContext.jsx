@@ -3,34 +3,34 @@ import { createContext, useContext, useState } from 'react'
 export const CartContext = createContext([])
 export const useCartContext = () => useContext(CartContext)
 export const CartContextProvider = ({children}) => {
-    const [ ListaCart, setListaCart] = useState([])
+    const [ VehiclesCartList, setVehiclesCartList] = useState([])
 
-    const agregarACart = (nuevoVehiculo) => {
-        const idVehiculoCart = ListaCart.findIndex(vehiculo => vehiculo.id === nuevoVehiculo.id)
-        if(idVehiculoCart !== -1) {
-            ListaCart[idVehiculoCart].cantidad += nuevoVehiculo.cantidad
-            setListaCart([...ListaCart])
+    const addToCart = (newVehicle) => {
+        const idVehicleCart = VehiclesCartList.findIndex(vehicle => vehicle.id === newVehicle.id)
+        if(idVehicleCart !== -1) {
+            VehiclesCartList[idVehicleCart].quantity += newVehicle.quantity
+            setVehiclesCartList([...VehiclesCartList])
             return
         }
-        setListaCart([
-            ... ListaCart,
-            nuevoVehiculo
+        setVehiclesCartList([
+            ... VehiclesCartList,
+            newVehicle
         ])
     }
 
-    const totalPrecio = () => ListaCart.reduce( (contador, vehiculo) => contador += (vehiculo.cantidad * vehiculo.precio), 0)
-    const totalCantidad = () => ListaCart.reduce( (contador, vehiculo) => contador + vehiculo.cantidad, 0)
-    const eliminarVehiculo = (id) => setListaCart(ListaCart.filter(vehiculo => vehiculo.id !== id))
-    const vaciar = () => setListaCart ([])
+    const totalPrice = () => VehiclesCartList.reduce( (count, vehicle) => count += (vehicle.quantity * vehicle.price), 0)
+    const totalAmount = () => VehiclesCartList.reduce( (count, vehicle) => count + vehicle.quantity, 0)
+    const deleteVehicle = (id) => setVehiclesCartList(VehiclesCartList.filter(vehicle => vehicle.id !== id))
+    const clear = () => setVehiclesCartList ([])
 
     return (
         <CartContext.Provider value={{
-            ListaCart,
-            agregarACart,
-            totalPrecio,
-            totalCantidad,
-            eliminarVehiculo,
-            vaciar
+            VehiclesCartList,
+            addToCart,
+            totalPrice,
+            totalAmount,
+            deleteVehicle,
+            clear
         }}>
             {children}
         </CartContext.Provider>

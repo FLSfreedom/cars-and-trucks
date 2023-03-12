@@ -5,15 +5,15 @@ import { ItemCount } from '../ItemCount/ItemCount'
 import '../ItemDetail/ItemDetail.css'
 
 
-export const ItemDetail = ({vehiculo}) => {
+export const ItemDetail = ({vehicle}) => {
 
     const [isCount, setIsCount] = useState(true)
     const [cart, setCart] = useState(false)
 
-    const { agregarACart, eliminarVehiculo } = useCartContext()
-    const onAdd = (Qcant) => {
-        eliminarVehiculo(vehiculo, 1)
-        agregarACart ({ ... vehiculo, cantidad: Qcant})
+    const { addToCart, deleteVehicle } = useCartContext()
+    const onAdd = (Qquantity) => {
+        deleteVehicle(vehicle, 1)
+        addToCart ({ ... vehicle, quantity: Qquantity})
         setIsCount(false)
     }
 
@@ -22,11 +22,11 @@ export const ItemDetail = ({vehiculo}) => {
     }
 
   return (
-    <div className="estiloDetalle">
+    <div className="detailStyle">
         <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-item active" data-bs-interval="3500">
-                    <img src={vehiculo.imagen} className="d-block w-100" alt="..."/>
+                    <img src={vehicle.image} className="d-block w-100" alt="..."/>
                 </div>
                 <div className="carousel-item" data-bs-interval="2000">
                     <img src="/llave-compra.jpg" className="d-block w-100" alt="..."/>
@@ -41,14 +41,14 @@ export const ItemDetail = ({vehiculo}) => {
                 <span className="visually-hidden">Next</span>
             </button>
         </div>
-        <h6>Categoría: {vehiculo.categoria}</h6> 
-        <h2>{vehiculo.nombre}</h2> 
-        <h4>Precio: {vehiculo.precio} {vehiculo.moneda}</h4> 
+        <h6>Categoría: {vehicle.category}</h6> 
+        <h2>{vehicle.name}</h2> 
+        <h4>Precio: {vehicle.price} {vehicle.currency}</h4> 
         <div>
                     <button className='btn btn-primary' style={{margin: '10px 0px 10px 0px'}} onClick={handleCart}>Verificar carrito</button>
                     {
                         isCount ? 
-                            <ItemCount initial={1} stock={vehiculo.stock} onAdd={onAdd} />                        
+                            <ItemCount initial={1} stock={vehicle.stock} onAdd={onAdd} />                        
                         :
                             <h4>¡El vehiculo fue agregado!</h4>
                     }   

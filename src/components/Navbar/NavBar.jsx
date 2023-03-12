@@ -8,23 +8,23 @@ import '../NavBar/Navbar.css'
 const NavBar = () => {
     return (
       <>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary estiloNav">
+        <nav className="navbar navbar-expand-lg bg-body-tertiary navStyle">
           <div className="container-fluid nav-bar container-sm-full">
             <div className="navbar-brand">
               <img src="/LOGOCYT2.jpg" alt="" />
               <Link to='/'><h1>C&T Cars and Trucks</h1></Link>
             </div>
-            <div className="opcionesNav">
-              <div className="navbar-collapse listaFantasma" id="navbarNavDropdown">
+            <div className="navOptions">
+              <div className="navbar-collapse hiddenList" id="navbarNavDropdown">
                 <Dropdown1/>
               </div>
-              <Link to='/cart' className="estiloCart">
+              <Link to='/cart' className="cartStyle">
                 <CartWidget/>
               </Link>
             </div>
           </div>
         </nav>
-        <div className="listaFantasmaDos">
+        <div className="hiddenListTwo">
           <Dropdown2/>
         </div>
       </>

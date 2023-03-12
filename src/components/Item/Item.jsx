@@ -1,14 +1,14 @@
 import React, { memo } from 'react'
 import { Link } from 'react-router-dom'
 
-const Item = memo ( ({vehiculo}) => {
+const Item = memo ( ({vehicle}) => {
   return (
-    <Link to={`/Item/${vehiculo.id}`}>
-        <div key={vehiculo.id} className="card" styles="width: 18rem;">                                            
-            <img src={vehiculo.imagen} className="card-img-top" alt="..."/>
+    <Link to={`/Item/${vehicle.id}`}>
+        <div key={vehicle.id} className="card" styles="width: 18rem;">                                            
+            <img src={vehicle.image} className="card-img-top" alt="..."/>
             <div className="card-body">
-                <h4>{vehiculo.nombre}</h4>
-                <h5>${vehiculo.precio} {vehiculo.moneda}</h5>
+                <h4>{vehicle.name}</h4>
+                <h5>${vehicle.price} {vehicle.currency}</h5>
                 <p className="card-text"></p>
             </div>                                                                                      
         </div>

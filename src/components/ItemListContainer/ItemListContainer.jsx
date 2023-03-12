@@ -5,32 +5,33 @@ import ItemList from '../ItemList/ItemList'
 import { collection, getDocs, getFirestore, query, where} from "firebase/firestore"
 import '../ItemListContainer/ItemListContainer.css'
 
-const Cargando = () => {
+const Loading = () => {
   return <h2>Cargando...</h2>
 }
 
 export const ItemListContainer = ({Greetings}) => {
-  const [ vehiculos, setVehiculos ] = useState ([]) 
-  const [ cargando, setCargando ] = useState(true)
+  const [vehicles, setVehicles] = useState([])
+
+  const [ loading, setLoading ] = useState(true)
 
   const { idCategory }=useParams()
 
   useEffect(()=>{
     const db = getFirestore()
-    const queryCollections = collection(db, 'vehiculos')
-    const queryFilter = idCategory ? query(queryCollections, where('categoria','==', idCategory) ) : queryCollections 
+    const queryCollections = collection(db, 'vehicles')
+    const queryFilter = idCategory ? query(queryCollections, where('category','==', idCategory) ) : queryCollections 
     getDocs(queryFilter)
-    .then(resp =>setVehiculos(resp.docs.map(vehiculo=>({id: vehiculo.id,...vehiculo.data()}))))
+    .then(resp =>setVehicles(resp.docs.map(vehicle=>({id: vehicle.id,...vehicle.data()}))))
     .catch(err => console.log(err))
-    .finally(()=>setCargando(false))
+    .finally(()=>setLoading(false))
   },[idCategory])
 
   return (
     <center>
-      <div className="contenedorPrincipal">
-        <h2 className="tituloGreetings">{Greetings}</h2>
+      <div>
+        <h2 className="titleGreetings">{Greetings}</h2>
       </div>
-      { cargando ? <Cargando/>
+      { loading ? <Loading/>
         :
         <div style={{
           display: 'flex',
@@ -38,7 +39,7 @@ export const ItemListContainer = ({Greetings}) => {
           justifyContent: 'space-evenly',
           flexWrap: 'wrap'
         }}>
-          <ItemList vehiculos={vehiculos}/>
+          <ItemList vehicles={vehicles}/>
         </div>
       }
     </center>

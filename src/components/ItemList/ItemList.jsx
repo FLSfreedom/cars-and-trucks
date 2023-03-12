@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 import Item from '../Item/Item'
 
-const ItemList = memo (({vehiculos}) => {
+const ItemList = memo (({vehicles}) => {
   return (
-    vehiculos.map(vehiculo =>  <Item key={vehiculo.id} vehiculo={vehiculo}/>)
+    vehicles.map(vehicle =>  <Item key={vehicle.id} vehicle={vehicle}/>)
   )
 }
 )

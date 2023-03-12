@@ -2,24 +2,26 @@ import React from 'react'
 import { useCartContext } from '../../Context/CartContext'
 
 const CartDetailContainer = () => {
-  const { ListaCart, totalPrecio, eliminarVehiculo } = useCartContext()
+  const { VehiclesCartList, totalPrice, deleteVehicle } = useCartContext()
   return (
     <div>
-        { ListaCart.map(nuevoVehiculo => (
-            <div key={nuevoVehiculo.id}>
-                <img src={nuevoVehiculo.imagen} style={{width: 150, marginLeft: 10, marginTop: 10}}/>
+        { VehiclesCartList.map(newVehicle => (
+            <div key={newVehicle.id}>
+                <img src={newVehicle.image} style={{width: 150, marginLeft: 10, marginTop: 10}}/>
                 <div style={{display: 'inline-block', marginLeft: 10, marginRight: 10}}>
-                   <div style={{display: 'inline-block', fontWeight: 'bold'}}>{nuevoVehiculo.nombre}</div> - Cantidad: {nuevoVehiculo.cantidad} - Precio: {nuevoVehiculo.precio * nuevoVehiculo.cantidad} {nuevoVehiculo.moneda}
+                   <div style={{display: 'inline-block', fontWeight: 'bold'}}>{newVehicle.name}</div> - Cantidad: {newVehicle.quantity} - Precio: {newVehicle.price * newVehicle.quantity} {newVehicle.currency}
                 </div>
                 <div>
-                  <button className="btn btn-danger" onClick={()=> eliminarVehiculo(nuevoVehiculo.id)}> Eliminar vehiculo</button>
+                  <button className="btn btn-outline-danger" onClick={()=> deleteVehicle(newVehicle.id)} style={{
+                    margin: '1%'
+                  }}> Eliminar vehiculo</button>
                 </div>             
             </div>
         )
         )            
         }
         <center>
-          <h4>{totalPrecio() !== 0 && `Precio Total es: $ ${totalPrecio()}`}</h4>
+          <h4>{totalPrice() !== 0 && `Precio total de compra: $ ${totalPrice()}`}</h4>
         </center>
     </div>
   )
