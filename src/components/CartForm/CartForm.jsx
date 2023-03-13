@@ -21,7 +21,7 @@ const CartForm = () => {
             } else {
                 order.comprador = formData
                 order.isActive = true
-                order.seleccion = VehiclesCartList.map(({id, name, price, quantity}) => ({id, name, price, quantity}))
+                order.selection = VehiclesCartList.map(({id, name, price, quantity}) => ({id, name, price, quantity}))
                 order.total = totalPrice()
 
                 const db = getFirestore()
