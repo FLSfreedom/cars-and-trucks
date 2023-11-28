@@ -4,5 +4,5 @@
 }
 
 body {
-  background-image: linear-gradient(to right, rgb(235, 235, 154), white);
+  background-image: linear-gradient(to right, #f69d3c, white, #f69d3c, white);
 }

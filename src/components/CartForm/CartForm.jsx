@@ -14,12 +14,14 @@ const CartForm = () => {
     const insertOrder = (evt) => {
         evt.preventDefault()
         const order = {}
-            if(formData.email !== formData.confirmEmail){    
+            if(formData.email !== formData.confirmEmail) {    
                 alert('Las direcciones de e-mail ingresadas no coinciden entre sí');
-            }else if(formData.email, formData.confirmEmail, formData.phone, formData.name == ''){
+            } else if(formData.email == '' || formData.confirmEmail == '' || formData.phone == '' || formData.name == '') {
                 alert('Completar todos los campos');
+            } else if (totalPrice() == 0) {
+                alert('Para generar el código de orden de compra debe agregar al menos 1 vehículo al carrito');
             } else {
-                order.comprador = formData
+                order.buyername = formData
                 order.isActive = true
                 order.selection = VehiclesCartList.map(({id, name, price, quantity}) => ({id, name, price, quantity}))
                 order.total = totalPrice()
