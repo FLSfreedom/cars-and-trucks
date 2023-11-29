@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import Dropdown1 from "../Dropdowns/Dropdown1";
 import Dropdown2 from "../Dropdowns/Dropdown2";
-import '../Navbar/Navbar.css'
+import '../Navbar/NavBar.css'
 
 const NavBar = () => {
     return (
