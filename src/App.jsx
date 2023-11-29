@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import NavBar from './components/NavBar/NavBar.jsx'
+import NavBar from './components/Navbar/NavBar.jsx'
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer'
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer.jsx'
 import { CartContextProvider } from './Context/CartContext.jsx'
